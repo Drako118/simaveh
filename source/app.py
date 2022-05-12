@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request, redirect, flash
 from flask_mysqldb import MySQL
-from flask_wtf.csrf import CSRFProtect
-from flask_login import LoginManager, login_user, logout_user, login_required
+#from flask_wtf.csrf import CSRFProtect
+#from flask_login import LoginManager, login_user, logout_user, login_required
 import controlador_usuario
 import controlador_conductor
 import controlador_vehiculo
-from flask_recaptcha import ReCaptcha
+#from flask_recaptcha import ReCaptcha
 
 
 app = Flask(__name__, template_folder="Vistas")
