@@ -1,0 +1,61 @@
+{% extends 'layoutAdmin.html' %}
+
+
+{% block tittle %} Home | SIMAVEH {% endblock %}
+
+{% block contenido_usuario %}
+<section class="section">
+    <!-- <button class="new_usr"><a href="{{url_for('formulario_agregar_usuario')}}" >Nuevo Usuario</a></button> -->
+    <div class="new_user"  class="modal-dialog modal-dialog-centered"><a href="{{url_for('formulario_agregar_usuario')}}" >Nuevo Usuario</a></div>
+    <div class="columns">
+        <div class="column">
+            <br>
+            <table class="table">
+                <thead class="th">
+                    <tr>
+                        <th>DNI</th>
+                        <th>NOMBRES</th>
+                        <th>CUENTA</th>
+                        <th>CORREO</th>
+                        <th>TELEFONO</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuario %}
+                    <tr>
+                        <td>{{usuario[1]}}</td>
+                        <td>{{usuario[2]}}</td>
+                        <td>{{usuario[3]}}</td>
+                        <td>{{usuario[4]}}</td>
+                        <td>{{usuario[5]}}</td>
+                                               
+                      
+                        
+                        <td align="center" >{# Pasar el id (lo que hay en usuario[0] #}
+                            <a href="{{url_for('resset_password', id=usuario[0])}}"  > <img src="{{url_for('static', filename='img/editarpass.png')}}" alt="" width="15px"> </a></td>
+                        
+                        <td align="center">
+                            {# Pasar el id (lo que hay en usuario[0] #}
+                            <a href="{{url_for('editar_usuario', id=usuario[0])}}"><img src="{{url_for('static', filename='img/edit.png')}}" alt="" width="15px"></a>
+                        </td>
+                        <td align="center">
+                            <form action="{{url_for('eliminar_usuario')}}" method="POST">
+                                <input type="hidden" name="id" value="{{usuario[0]}}">
+                                <button class="btndelete" class="modal-dialog modal-dialog-centered"><img src="{{url_for('static', filename='img/delete.png')}}" alt="" width="18px"></button>
+                            </form>
+                            
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

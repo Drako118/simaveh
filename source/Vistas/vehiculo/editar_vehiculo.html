@@ -1,0 +1,35 @@
+{% extends 'layoutAdmin.html' %}
+{% block tittle %} Home | SIMAVEH {% endblock %}
+
+{% block contenido_vehiculo %}
+<section class="section">
+    <div class="columns">
+        <div class="conten">
+            <h3 class="is-size-3">Editar Vehiculos</h3>
+            <form action="{{url_for('actualizar_vehiculo')}}" method="post" class="formularioeditar">
+                
+                <input type="hidden" name="id" value="{{vehiculo[0]}}">
+              
+                <label for="marca">Marca::</label>
+                <input value="{{vehiculo[0]}}" required type="text" class="input" placeholder="marca" name="marca" id="marca">
+               
+                <label for="modelo">Modelo:</label>
+                <input value="{{vehiculo[1]}}" required type="text" class="input" placeholder="modelo" name="modelo" id="modelo">
+               
+                <label for="color">Color del vehiculo:</label>
+                <input value="{{vehiculo[2]}}" required type="text" class="input" placeholder="color" name="color" id="color"><br><br>
+               
+                <label for="numero_unidad">Numero de la movil:</label>
+                <input value="{{vehiculo[3]}}" required type="text" class="input" placeholder="numero_unidad" name="numero_unidad" id="numero_unidad">
+                
+                <label for="placa">Placa de la movil:</label>
+                <input value="{{vehiculo[4]}}" required type="text" class="input" placeholder="placa" name="placa" id="placa">
+
+                <button type="submit" class="save_btn">  Guardar</button>
+                <button class="cancel_btn"><a href="{{url_for('mante_vehiculo')}}" >Cancelar</a></button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'layoutAdmin.html' %}
+{% block tittle %} Home | SIMAVEH {% endblock %}
+{% block contenido_conductor %}
+<section class="section">
+    <!-- cuerpo del codigo -->
+    <div class="new_user" class="modal-dialog modal-dialog-centered"><a
+            href="{{url_for('formulario_agregar_conductor')}}">Nuevo Conductor</a></div>
+    <div class="columns">
+        <div class="column">
+            <br>
+            <table class="table">
+                <thead class="th">
+                    <tr>
+                        <th>DNI</th>
+                        <th>NOMBRES</th>
+                        <th>CELULAR</th>
+                        <th></th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- VARIABLE FOR  -->
+                    {% for conductor in conductor %}
+                    <tr>
+                        
+                        <td>{{conductor[1]}}</td>
+                        <td>{{conductor[2]}}</td>
+                        <td>{{conductor[3]}}</td>
+
+
+
+                        <td align="center">
+                            {# Pasar el id (lo que hay en conductor[0] #}
+                            <a href="{{url_for('editar_conductor', id=conductor[0])}}"><img
+                                    src="{{url_for('static', filename='img/edit.png')}}" alt="" width="15px"></a>
+                        </td>
+                        <td align="center">
+                            <form action="{{url_for('eliminar_Conductor')}}" method="POST">
+                                <input type="hidden" name="id" value="{{conductor[0]}}">
+                                <button class="btndelete" class="modal-dialog modal-dialog-centered"><img
+                                        src="{{url_for('static', filename='img/delete.png')}}" alt=""
+                                        width="18px"></button>
+                            </form>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+{% endblock%}

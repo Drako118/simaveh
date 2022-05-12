@@ -1,0 +1,61 @@
+﻿{% extends 'layoutUser.html' %}
+{% block tittle %} SIMAVEH | MPCH{% endblock %}
+{% block contenido %}  
+
+<div class="login-area bg-image">
+  <div class="d-table">
+    <div class="d-table-cell">
+      <div class="login-form">
+        <div class="logo">
+          <a href="#home"
+            ><img src="{{url_for('static', filename='img/logo_mpch.png')}}" alt="image"
+          /></a>
+        </div>
+
+        <h2>Bienvenido</h2>
+
+        <form>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="email"
+              placeholder="Usuario"
+            />
+            <span class="label-title"><i class="bx bx-user"></i></span>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              placeholder="Contraseña"
+            />
+            <span class="label-title"><i class="bx bx-lock"></i></span>
+          </div>
+
+          <div class="form-group">
+            <div class="remember-forgot">
+              <label class="checkbox-box"
+                >Recuerdame
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+              </label>
+
+              <a
+                href="{{ url_for('home_recu_passw') }} "
+                class="forgot-password"
+                >Recuperar Contraseña?</a
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="login-btn">Iniciar Sesión</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

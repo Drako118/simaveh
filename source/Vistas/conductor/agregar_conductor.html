@@ -1,0 +1,23 @@
+{% extends 'layoutAdmin.html' %}
+{% block tittle %} Home | SIMAVEH {% endblock %}
+
+{% block contenido_conductor %}
+<section class="section">
+    <div class="columns">
+        <div class="conten">
+            <h3 class="is-size-3">Registro de nuevo conductor</h3>
+            <form action="{{url_for('guardar_conductor')}}" method="post" class="formularioAgregar" id="formulario">
+                <label for="dni">Dni:</label>
+                <input required type="number" class="input" placeholder="Dni" name="dni" id="dni"><br>
+                <label for="nombre">Nombres:</label>
+                <input required type="text" class="input" placeholder="Nombres" name="nombre" id="nombre"><br>
+                <label for="celular">Teléfono:</label>
+                <input required type="number" class="input" placeholder="Teléfono" name="celular" id="celular"><br><br>
+                <button type="submit" class="save_btn">Guardar</button>
+                <button class="cancel_btn"><a href="{{url_for('manageconductor')}}" >Cancelar</a></button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

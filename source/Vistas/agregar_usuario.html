@@ -1,0 +1,53 @@
+{% extends 'layoutAdmin.html' %}
+{% block tittle %} Home | SIMAVEH {% endblock %}
+
+{% block contenido_usuario %}
+<section class="section">
+    <div class="columns">
+        <div class="conten">
+            <h3>Registro de nuevos usuarios</h3>
+            <form action="{{url_for('guardar_usuario')}}" method="post" class="formularioAgregar" id="formulario">
+                <table>
+                    <tr>
+                        <td><label for="dni">Dni:</label></td>
+                        <td><input required type="number" class="input" placeholder="Dni" name="dni" id="dni"><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fullname">Nombres:</label></td>
+                        <td> <input required type="text" class="input" placeholder="Nombres" name="fullname"
+                                id="fullname"><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="username">Usuario:</label></td>
+                        <td><input required type="text" class="input" placeholder="Usuario" name="username"
+                                id="username"><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password:</label></td>
+                        <td><input required type="password" class="input" placeholder="Contraseña" name="password"
+                                id="password"><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="correo">Correo:</label></td>
+                        <td><input required type="text" class="input" placeholder="Correo" name="correo"
+                                id="correo"><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="telefono">Teléfono:</label></td>
+                        <td><input required type="number" class="input" placeholder="Teléfono" name="telefono"
+                                id="telefono"><br>
+                            <br<br>
+                        </td>
+                    </tr>
+                </table>
+
+                <br>
+                <button type="submit" class="save_btn"> Guardar</button>
+                <button class="cancel_btn"><a href="{{url_for('mante_usr')}}">Cancelar</a></button><br><br>
+            </form>
+            <br>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

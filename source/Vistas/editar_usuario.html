@@ -1,0 +1,58 @@
+{% extends 'layoutAdmin.html' %}
+{% block tittle %} Home | SIMAVEH {% endblock %}
+
+{% block contenido_usuario %}
+<section class="section">
+    <div class="columns">
+        <div class="conten">
+            <h3 class="is-size-3">Editar Usuarios</h3>
+            <form action="{{url_for('actualizar_usuario')}}" method="post" class="formularioeditar">
+                <input type="hidden" name="id" value="{{usuario[0]}}">
+                <table>
+                    <tr>
+                        <td><label for="dni">DNI:</label></td>
+                        <td><input value="{{usuario[0]}}" required type="text" class="input" placeholder="tipo_persona" name="dni" id="dni"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="fullname">NOMBRES:</label></td>
+                        <td><input value="{{usuario[1]}}" required type="text" class="input" placeholder="fullname" name="fullname" id="fullname"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="username">USERNAME:</label></td>
+                        <td><input value="{{usuario[2]}}" required type="text" class="input" placeholder="username" name="username" id="username"></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><label for="correo">CORREO:</label></td>
+                        <td><input value="{{usuario[3]}}" required type="text" class="input" placeholder="cooreo" name="correo" id="correo"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="telefono">TELEFONO:</label></td>
+                        <td><input value="{{usuario[4]}}" required type="number" class="input" placeholder="telefono" name="telefono" id="telefono"></td>
+                    </tr>
+                </table>
+
+                <br><br>
+                <button type="submit" class="save_btn">  Guardar</button>
+                <button class="cancel_btn"><a href="{{url_for('mante_usr')}}" >Cancelar</a></button>
+                            </form>
+                            <br> <br>
+        </div>
+    </div>
+</section>
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+{% endblock %}

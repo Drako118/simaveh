@@ -1,0 +1,25 @@
+{% extends "maestra.html" %}
+{% block titulo %}
+Cambiar Contraseña
+{% endblock %}
+{% block contenido %}
+<section class="section">
+    <div class="columns">
+        <div class="column">
+            <h3 class="is-size-3">Cambiar Contraseña</h3>
+            <form action="{{url_for('actualizar_pass_usr')}}" method="post">
+                {# Enviar el id en un campo oculto #}
+                <input type="hidden" name="id" value="{{usuario[0]}}">
+                <label for="nombre">Contraseña Actual</label>
+                <input value="{{usuario[1]}}" required type="password" class="input" placeholder="password" name="nombre" id="password">
+                <label for="descripcion">Nueva Contraseña</label>
+                <input value="{{usuario[2]}}" required type="password" class="input" placeholder="password" name="password" id="password">
+                <label for="precio">Repetir Contraseña</label>
+                <input value="{{usuario[3]}}" required type="password" class="input" placeholder="repassword" name="repassword" id="repassword">
+                <button type="submit" class="button is-success mt-2">Guardar</button>
+                <a href="{{url_for('mante_usr')}}" class="button is-primary mt-2">Volver</a>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

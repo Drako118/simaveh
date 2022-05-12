@@ -1,0 +1,57 @@
+{% extends 'layoutAdmin.html' %}
+
+
+{% block tittle %} Home | SIMAVEH {% endblock %}
+
+{% block contenido_vehiculo %}
+<section class="section">
+    <div class="new_user"  class="modal-dialog modal-dialog-centered"><a href="{{url_for('formulario_agregar_vehiculo')}}" >Nuevo Vehiculo</a></div>
+    <div class="columns">
+        <div class="column">
+            <br>
+            <table class="table">
+                <thead class="th">
+                    <tr>
+                        <th>MARCA</th>
+                        <th>MODELO</th>
+                        <th>COLOR</th>
+                        <th>NUM_UNIDAD</th>
+                        <th>PLACA</th>
+                      
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for vehiculo in vehiculo %}
+                    <tr>
+                        <td>{{vehiculo[1]}}</td>
+                        <td>{{vehiculo[2]}}</td>
+                        <td>{{vehiculo[3]}}</td>
+                        <td>{{vehiculo[4]}}</td>
+                        <td>{{vehiculo[5]}}</td>
+                        <td></td>
+
+                        <td align="center">
+                            {# Pasar el id (lo que hay en vehiculo[0] #}
+                            <a href="{{url_for('editar_vehiculo', id=vehiculo[0])}}"><img src="{{url_for('static', filename='img/edit.png')}}" alt="" width="15px"></a>
+                        </td>
+                        <td align="center">
+                            <form action="{{url_for('eliminar_vehiculo')}}" method="POST">
+                                <input type="hidden" name="id" value="{{vehiculo[0]}}">
+                                <button class="btndelete" class="modal-dialog modal-dialog-centered"><img src="{{url_for('static', filename='img/delete.png')}}" alt="" width="18px"></button>
+                            </form>
+                            
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
